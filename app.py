@@ -11,7 +11,8 @@ from linebot.v3.messaging import (
     ApiClient,
     MessagingApi,
     ReplyMessageRequest,
-    TextMessage
+    TextMessage,
+    ImageMessage
 )
 from linebot.v3.webhooks import (
     MessageEvent,
@@ -20,7 +21,8 @@ from linebot.v3.webhooks import (
 
 app = Flask(__name__)
 
-configuration = Configuration(access_token='BedaiCocJPX00F/9FaqlB9DjzZHtviqXZLo5LZNFO6dVSaLs52kaZm6jkQNy8IWNI/ozkRIFFqrxaMC8qLim1Uu0/G3I3TyXBCZ8ZmmuRW+CIEiP9wle1vHYEKll0XFxYUrjB5c8KgOeuSN+V9Ev+wdB04t89/1O/w1cDnyilFU=')  # YOUR_CHANNEL_ACCESS_TOKEN
+configuration = Configuration(
+    access_token='BedaiCocJPX00F/9FaqlB9DjzZHtviqXZLo5LZNFO6dVSaLs52kaZm6jkQNy8IWNI/ozkRIFFqrxaMC8qLim1Uu0/G3I3TyXBCZ8ZmmuRW+CIEiP9wle1vHYEKll0XFxYUrjB5c8KgOeuSN+V9Ev+wdB04t89/1O/w1cDnyilFU=')  # YOUR_CHANNEL_ACCESS_TOKEN
 handler = WebhookHandler('3861ce04f88b821a5e7199958d42459e')  # YOUR_CHANNEL_SECRET
 
 
@@ -50,7 +52,8 @@ def handle_message(event):
         line_bot_api.reply_message_with_http_info(
             ReplyMessageRequest(
                 reply_token=event.reply_token,
-                messages=[ImageMessage(type="image",originalContentUrl="https://imgur.com/a/Q6bJWDd",previewImageUrl="https://imgur.com/a/Q6bJWDd")]
+                messages=[ImageMessage(type="image", originalContentUrl="https://imgur.com/a/Q6bJWDd",
+                                       previewImageUrl="https://imgur.com/a/Q6bJWDd")]
             )
         )
 
