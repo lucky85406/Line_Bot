@@ -50,7 +50,7 @@ def function(event):
     def Ukey():
         return event.message.text
 
-    if Ukey() == "Go":
+    if Ukey() == "交通車時刻表":
         line_bot_api.reply_message(event.reply_token,
                                    ImageSendMessage(original_content_url="https://i.imgur.com/Pw5ZxG1.jpg",
                                                     preview_image_url='https://i.imgur.com/Pw5ZxG1.jpg'))
