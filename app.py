@@ -1,3 +1,5 @@
+import inspect
+
 from flask import Flask, request, abort
 from linebot import (
     LineBotApi, WebhookHandler
@@ -8,6 +10,10 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage
 )
+
+if not hasattr(inspect, 'getargspec'):
+    inspect.getargspec = inspect.getfullargspec
+from invoke import task
 
 app = Flask(__name__)
 
@@ -46,7 +52,6 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def function(event):
-
     # 取得使用者輸入訊息
     def Ukey():
         return event.message.text
