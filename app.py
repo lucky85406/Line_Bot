@@ -1,29 +1,27 @@
 from flask import Flask, request, abort
-
-from linebot.v3 import (
-    WebhookHandler
+from linebot import (
+    LineBotApi, WebhookHandler
 )
-from linebot.v3.exceptions import (
+from linebot.exceptions import (
     InvalidSignatureError
 )
-from linebot.v3.messaging import (
-    Configuration,
-    ApiClient,
-    MessagingApi,
-    ReplyMessageRequest,
-    TextMessage,
-    ImageMessage
-)
-from linebot.v3.webhooks import (
-    MessageEvent,
-    TextMessageContent
+from linebot.models import (
+    MessageEvent, TextMessage, TextSendMessage
 )
 
 app = Flask(__name__)
 
-configuration = Configuration(
-    access_token='BedaiCocJPX00F/9FaqlB9DjzZHtviqXZLo5LZNFO6dVSaLs52kaZm6jkQNy8IWNI/ozkRIFFqrxaMC8qLim1Uu0/G3I3TyXBCZ8ZmmuRW+CIEiP9wle1vHYEKll0XFxYUrjB5c8KgOeuSN+V9Ev+wdB04t89/1O/w1cDnyilFU=')  # YOUR_CHANNEL_ACCESS_TOKEN
-handler = WebhookHandler('3861ce04f88b821a5e7199958d42459e')  # YOUR_CHANNEL_SECRET
+line_bot_api = LineBotApi(
+    'BedaiCocJPX00F/9FaqlB9DjzZHtviqXZLo5LZNFO6dVSaLs52kaZm6jkQNy8IWNI/ozkRIFFqrxaMC8qLim1Uu0/G3I3TyXBCZ8ZmmuRW+CIEiP9wle1vHYEKll0XFxYUrjB5c8KgOeuSN+V9Ev+wdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('3861ce04f88b821a5e7199958d42459e')
+
+
+@app.route("/")
+def home():
+    return 'home OK'
+
+
+# 監聽所有來自 /callback 的 Post Request
 
 
 @app.route("/callback", methods=['POST'])
@@ -39,24 +37,28 @@ def callback():
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
-        app.logger.info("Invalid signature. Please check your channel access token/channel secret.")
+        print("Invalid signature. Please check your channel access token/channel secret.")
         abort(400)
 
     return 'OK'
 
 
-@handler.add(MessageEvent, message=TextMessageContent)
-def handle_message(event):
-    with ApiClient(configuration) as api_client:
-        line_bot_api = MessagingApi(api_client)
-        line_bot_api.reply_message_with_http_info(
-            ReplyMessageRequest(
-                reply_token=event.reply_token,
-                messages=[ImageMessage(type="image", originalContentUrl="https://imgur.com/a/Q6bJWDd",
-                                       previewImageUrl="https://imgur.com/a/Q6bJWDd")]
-            )
-        )
+# 處理訊息
+@handler.add(MessageEvent, message=TextMessage)
+def function(event):
+
+    # 取得使用者輸入訊息
+    def Ukey():
+        return event.message.text
+
+    if Ukey() == "Go":
+        line_bot_api.reply_message(event.reply_token,
+                                   TextSendMessage(text="您好～請先點選下方選單中的開始進行葡萄酒選擇喔"))
+    else:
+        line_bot_api.reply_message(event.reply_token,
+                                   TextSendMessage(text="您好～請先點選下方選單中的開始進行葡萄酒選擇喔"))
 
 
+# 執行
 if __name__ == "__main__":
     app.run()
