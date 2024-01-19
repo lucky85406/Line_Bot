@@ -1,5 +1,3 @@
-import inspect
-
 from flask import Flask, request, abort
 from linebot import (
     LineBotApi, WebhookHandler
@@ -10,10 +8,6 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage
 )
-
-if not hasattr(inspect, 'getargspec'):
-    inspect.getargspec = inspect.getfullargspec
-from invoke import task
 
 app = Flask(__name__)
 
