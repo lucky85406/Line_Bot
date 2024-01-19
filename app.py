@@ -6,7 +6,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage
+    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage
 )
 
 app = Flask(__name__)
@@ -52,7 +52,8 @@ def function(event):
 
     if Ukey() == "Go":
         line_bot_api.reply_message(event.reply_token,
-                                   TextSendMessage(text="您好～請先點選下方選單中的開始進行葡萄酒選擇喔"))
+                                   ImageSendMessage(original_content_url="https://imgur.com/Pw5ZxG1",
+                                                    preview_image_url='https://imgur.com/Pw5ZxG1'))
     else:
         line_bot_api.reply_message(event.reply_token,
                                    TextSendMessage(text="您好～請先點選下方選單中的開始進行葡萄酒選擇喔"))
