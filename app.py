@@ -50,7 +50,7 @@ def handle_message(event):
         line_bot_api.reply_message_with_http_info(
             ReplyMessageRequest(
                 reply_token=event.reply_token,
-                messages=[TextMessage(text=event.message.text)]
+                messages=[ImageMessage(type="image",originalContentUrl="https://imgur.com/a/Q6bJWDd",previewImageUrl="https://imgur.com/a/Q6bJWDd")]
             )
         )
 
