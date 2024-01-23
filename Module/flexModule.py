@@ -2,44 +2,62 @@ def transit():
     contents = {
         "type": "bubble",
         "hero": {
-            "type": "image",
-            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-            "size": "full",
-            "aspectRatio": "20:12",
-            "aspectMode": "cover",
-            "action": {
-                "type": "uri",
-                "uri": "http://linecorp.com/"
-            }
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+                {
+                    "type": "text",
+                    "text": "FROM",
+                    "offsetStart": "10px",
+                    "offsetTop": "5px",
+                    "color": "#9D9D9D",
+                    "weight": "bold"
+                },
+                {
+                    "type": "text",
+                    "text": "Taoyuan",
+                    "offsetTop": "5px",
+                    "offsetStart": "20px",
+                    "size": "30px"
+                },
+                {
+                    "type": "text",
+                    "text": "TO",
+                    "offsetTop": "5px",
+                    "offsetStart": "10px",
+                    "color": "#9D9D9D",
+                    "weight": "bold"
+                },
+                {
+                    "type": "text",
+                    "text": "Chayi",
+                    "offsetTop": "5px",
+                    "offsetStart": "20px",
+                    "size": "30px"
+                },
+                {
+                    "type": "separator"
+                }
+            ],
+            "spacing": "5px",
+            "backgroundColor": "#D8D8EB",
+            "alignItems": "flex-start"
         },
         "body": {
             "type": "box",
             "layout": "vertical",
             "contents": [
                 {
-                    "type": "text",
-                    "text": "Store Name",
-                    "weight": "bold",
-                    "size": "xl"
-                },
-                {
                     "type": "box",
-                    "layout": "baseline",
+                    "layout": "vertical",
                     "contents": [
                         {
-                            "type": "icon",
-                            "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
-                        },
-                        {
                             "type": "text",
-                            "text": "Star",
-                            "flex": 0,
-                            "margin": "md",
-                            "size": "sm",
-                            "color": "#999999"
+                            "text": "時程表",
+                            "size": "25px",
+                            "weight": "bold"
                         }
-                    ],
-                    "margin": "md"
+                    ]
                 },
                 {
                     "type": "box",
@@ -50,69 +68,99 @@ def transit():
                         {
                             "type": "box",
                             "layout": "baseline",
-                            "spacing": "sm",
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "Place",
-                                    "color": "#aaaaaa",
-                                    "size": "sm",
-                                    "flex": 1
+                                    "text": "第一站"
+                                },
+                                {
+                                    "type": "icon",
+                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+                                    "offsetEnd": "20px"
                                 },
                                 {
                                     "type": "text",
-                                    "text": "Address",
-                                    "wrap": True,
-                                    "color": "#666666",
-                                    "size": "sm",
-                                    "flex": 5
+                                    "text": "07:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                    "type": "image",
+                                    "url": "https://i.imgur.com/VNeqIZ2.png",
+                                    "offsetStart": "45px"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "時程：1hr",
+                                    "gravity": "center",
+                                    "offsetStart": "8px",
+                                    "color": "#8E8E8E"
                                 }
                             ]
                         },
                         {
                             "type": "box",
                             "layout": "baseline",
-                            "spacing": "sm",
                             "contents": [
                                 {
                                     "type": "text",
-                                    "text": "Time",
-                                    "color": "#aaaaaa",
-                                    "size": "sm",
-                                    "flex": 1
+                                    "text": "第二站"
+                                },
+                                {
+                                    "type": "icon",
+                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+                                    "offsetEnd": "20px"
                                 },
                                 {
                                     "type": "text",
-                                    "text": "24 hour",
-                                    "wrap": True,
-                                    "color": "#666666",
-                                    "size": "sm",
-                                    "flex": 5
+                                    "text": "08:00"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                    "type": "image",
+                                    "url": "https://i.imgur.com/VNeqIZ2.png",
+                                    "offsetStart": "45px"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "時程：1hr",
+                                    "gravity": "center",
+                                    "offsetStart": "8px",
+                                    "color": "#8E8E8E"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "box",
+                            "layout": "baseline",
+                            "contents": [
+                                {
+                                    "type": "text",
+                                    "text": "第三站"
+                                },
+                                {
+                                    "type": "icon",
+                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png",
+                                    "offsetEnd": "20px"
+                                },
+                                {
+                                    "type": "text",
+                                    "text": "09:00"
                                 }
                             ]
                         }
                     ]
                 }
             ]
-        },
-        "footer": {
-            "type": "box",
-            "layout": "vertical",
-            "spacing": "sm",
-            "contents": [
-                {
-                    "type": "button",
-                    "style": "link",
-                    "height": "sm",
-                    "action": {
-                        "type": "postback",
-                        "label": "label",
-                        "data": "YOUR_POST_BACK_DATA",
-                        "displayText": "displayText"
-                    }
-                }
-            ],
-            "flex": 0
         }
     }
     return contents
