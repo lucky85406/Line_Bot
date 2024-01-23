@@ -55,7 +55,7 @@ def function(event):
         line_bot_api.reply_message(event.reply_token,
                                    ImageSendMessage(original_content_url="https://i.imgur.com/Pw5ZxG1.jpg",
                                                     preview_image_url='https://i.imgur.com/Pw5ZxG1.jpg'))
-    if Ukey() == "時程表":
+    elif Ukey() == "時程表":
         line_bot_api.reply_message(event.reply_token, FlexSendMessage(alt_text='hi', contents=transit()))
     else:
         line_bot_api.reply_message(event.reply_token,

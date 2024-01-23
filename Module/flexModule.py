@@ -62,7 +62,7 @@ def transit():
                                 {
                                     "type": "text",
                                     "text": "Address",
-                                    "wrap": true,
+                                    "wrap": True,
                                     "color": "#666666",
                                     "size": "sm",
                                     "flex": 5
@@ -84,7 +84,7 @@ def transit():
                                 {
                                     "type": "text",
                                     "text": "24 hour",
-                                    "wrap": true,
+                                    "wrap": True,
                                     "color": "#666666",
                                     "size": "sm",
                                     "flex": 5
